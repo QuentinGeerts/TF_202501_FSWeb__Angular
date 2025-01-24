@@ -1,0 +1,27 @@
+<h2>Démonstration 01</h2>
+
+<h3>Property Binding: One-Way</h3>
+
+<p>Permet d'afficher le contenu d'une variable en TypeScript dans le template HTML</p>
+<p ngNonBindable>Pour afficher, nous utilisons une paire de double accolades {{ ... }}</p>
+
+
+<p>Nom: {{ nom }}</p>
+<p>Prénom: {{ prenom }}</p>
+<p>Date de naissance: {{ dateNaissance }}</p>
+
+<h3>Event Binding</h3>
+
+<p>Compteur: {{ compteur }}</p>
+<button (click)="incrementer()">Incrémenter la valeur</button>
+
+<h3>Attribute Binding</h3>
+
+<img [src]="source" [alt]="alt" [width]="width" [height]="heigth">
+
+<p>{{ message }}</p>
+<input type="text" [value]="message" (input)="changeValue($event)">
+
+<h4>Avec [(ngModel)]</h4>
+<p>{{ message }}</p>
+<input type="text" [(ngModel)]="message">
