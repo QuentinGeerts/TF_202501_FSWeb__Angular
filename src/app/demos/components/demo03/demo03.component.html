@@ -1,0 +1,146 @@
+<h2>Démo 03 - Les directives et customs directives</h2>
+
+<h3>Directives de composants</h3>
+
+<h4>NgStyle:</h4>
+
+<p [ngStyle]="{ 'font-style': style, 'font-weight': weight, 'font-size': size + 'rem' }">
+    Texte formaté
+</p>
+
+<p [ngStyle]="styles">
+    Texte formaté
+</p>
+
+<button (click)="toggleStyle()">Changer le style</button>
+<button (click)="toggleWeigt()">Changer l'épaisseur</button>
+<button (click)="toggleSize()">Changer la taille</button>
+
+<h4>NgClass:</h4>
+
+<p [ngClass]="{ 'isActive': isActive, 'isInactive': !isActive, 'stroke': compteur > 5 }">
+    Texte formaté
+</p>
+
+<input type="checkbox" [(ngModel)]="isActive" /> Activer / Désactiver
+
+<input type="number" [(ngModel)]="compteur">
+
+
+
+
+<h3>Directives structurelles</h3>
+
+<h4>NgIf:</h4>
+
+
+<!-- Avant Angular 17 -->
+
+<p *ngIf="false; else elseBlock">Lorem ipsum dolor sit, amet consectetur adipisicing elit. At, architecto?</p>
+
+<ng-template #elseBlock>
+    <p>Lorem ipsum dolor sit amet.</p>
+</ng-template>
+
+<!-- Depuis Angular 17 -->
+
+@if (true) {
+<p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. At, architecto?</p>
+}
+@else {
+<p>Lorem ipsum dolor sit amet.</p>
+}
+
+<h4>NgFor:</h4>
+
+<!-- Avant Angular 17 -->
+
+<p>Attention, il est impossible d'utiliser plus d'une **directive structurelle** par élément</p>
+
+<ul *ngIf="users">
+    <li
+        *ngFor="let user of users; let i = index; let isEven = even; let isOdd = odd; let isFirst = first; let isLast = last; trackBy: trackById">
+        <span [ngClass]="{ 'even': isEven, 'odd': isOdd, 'first': isFirst, 'last': isLast }">
+            [{{ i }}] - {{user.id}} {{user.lastname}} {{user.firstname}}
+        </span>
+    </li>
+</ul>
+
+<!-- Depuis Angular 17 -->
+@if (users) {
+<ul>
+    @for (user of users; track user.id) {
+    <li>
+        <span [ngClass]="{ 'even': $even, 'odd': $odd, 'first': $first, 'last': $last }">
+            [{{ $index }}] - {{user.id}} {{user.lastname}} {{user.firstname}}
+        </span>
+    </li>
+    }
+</ul>
+}
+
+<h4>NgSwitch:</h4>
+
+<!-- Avant Angular 17 -->
+
+<select [(ngModel)]="selectedColor">
+    <option value=""></option>
+    <option value="red">Rouge</option>
+    <option value="green">Vert</option>
+    <option value="blue">Bleu</option>
+</select>
+
+
+<div [ngSwitch]="selectedColor">
+    <p *ngSwitchCase="'red'" [ngStyle]="{color: selectedColor}">Vous avez choisi la couleur Rouge</p>
+    <p *ngSwitchCase="'green'" [ngStyle]="{color: selectedColor}">Vous avez choisi la couleur Verte</p>
+    <p *ngSwitchCase="'blue'" [ngStyle]="{color: selectedColor}">Vous avez choisi la couleur Bleu</p>
+    <p *ngSwitchDefault>Choisissez une couleur</p>
+</div>
+
+<!-- Depuis Angular 17 -->
+
+@switch (selectedColor) {
+    @case ('red') {
+        <p [ngStyle]="{color: selectedColor}">Vous avez choisi la couleur Rouge</p>
+    }
+    @case ('green') {
+        <p [ngStyle]="{color: selectedColor}">Vous avez choisi la couleur Verte</p>
+    }
+    @case ('blue') {
+        <p [ngStyle]="{color: selectedColor}">Vous avez choisi la couleur Bleu</p>
+    }
+    @default {
+        <p>Choisissez une couleur</p>
+    }
+}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
