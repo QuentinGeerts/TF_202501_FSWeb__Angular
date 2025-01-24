@@ -1,7 +1,20 @@
+<!-- 
+    routerLink: Permet de naviguer vers une route spécifique
+    routerLinkActive: Permet de définir une classe CSS à ajouter à l'élément si la route est active
+    routerLinkActiveOptions: Permet de définir des options pour le routerLinkActive 
+        => exact: true permet de dire que la route doit être exactement celle-ci pour ajouter la classe CSS
+-->
+
 <menu>
     <ul>
-        <li><a routerLink="home">Accueil</a></li>
-        <li><a routerLink="demos">Démonstrations</a></li>
-        <li><a routerLink="exos">Exercices</a></li>
+        <li><a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Accueil</a></li>
+        <li>
+            <a routerLink="/demos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Démonstrations</a>
+            <ul>
+                <li><a routerLink="/demos/demo01" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Démo 01 - Bindings</a></li>
+                <li><a routerLink="/demos/demo02" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Démo 02 - Directives</a></li>
+            </ul>
+        </li>
+        <li><a routerLink="/exos" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Exercices</a></li>
     </ul>
 </menu>
