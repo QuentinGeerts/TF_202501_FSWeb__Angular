@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { HighlightDirective } from './directives/highlight.directive';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
 import { ChronometrePipe } from './pipes/chronometre.pipe';
 import { MaskPipe } from './pipes/mask.pipe';
@@ -16,7 +17,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     CapitalizePipe,
     TruncatePipe,
     MaskPipe,
-    ChronometrePipe
+    ChronometrePipe,
+    HighlightDirective
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     TruncatePipe,
     MaskPipe,
     ChronometrePipe,
+    HighlightDirective,
   ]
 })
 export class SharedModule { }
