@@ -1,0 +1,116 @@
+<h2>Démo 02 - Les pipes</h2>
+
+<p>Les pipes sont des fonctions qui transforment une valeur affichée dans le template HTML</p>
+
+<p ngNonBindable>Les pipes sont utilisées dans les expressions d'interpolation {{ expression | nomPipe}}</p>
+
+<p>Angular fournit des pipes intégrés : nombres, dates, devises, pourcentages et chaines de caractères</p>
+
+<h3>Exemples de pipes intégrés</h3>
+
+
+<div>
+    <h4>String</h4>
+
+    <p>UpperCasePipe: {{ "voici ma chaine de caractères" | uppercase }}</p>
+    <p>LowerCasePipe: {{ "VOICI UNE CHAINE DE CARACTÈRES" | lowercase }}</p>
+    <p>TitleCasePipe: {{ "voici ma chaine de caractères" | titlecase }}</p>
+</div>
+
+<div>
+    <h4>Number (DecimalPipe)</h4>
+
+    <p ngNonBindable>
+        {{ valeur | number [ : 'format' [ : locale ] ] }}
+    </p>
+
+    <p>Base: {{ 123456.789 }}</p>
+    <p>Base: {{ 123456.789 | number }}</p>
+    <p>Base: {{ 123456.789 | number : '8.4-5' }}</p>
+    <p>Base: {{ 123456.789 | number : '4.1-2' }}</p>
+    <p>Base: {{ 123456.789 | number : '4.1-2' : 'fr-BE' }}</p>
+    <p>Base: {{ 123456.789 | number : '4.1-2' : 'nl-BE' }}</p>
+</div>
+
+<div>
+    <h4>Date (DatePipe)</h4>
+
+    <p ngNonBindable>
+        {{ valeur | date [ : format [ : timezone [ : locale ] ] ] }}
+    </p>
+
+    <p>Base: {{ now }}</p>
+    <p>Base: {{ now | date }}</p>
+    <p>Base: {{ now | date : 'd MMMM yyyy HH:mm:ss' }}</p>
+    <p>Base: {{ now | date : 'd MMMM yyyy HH:mm:ss' : '+0100' }}</p>
+    <p>Base: {{ birthdate | date : 'd MMMM yyyy HH:mm:ss' }}</p>
+    <p>Base: {{ birthdate | date : 'd MMMM yyyy HH:mm:ss' : '+0100' }}</p>
+    <p>Base: {{ now | date : 'd MMMM yyyy HH:mm:ss' : '+0100' : 'en-US' }}</p>
+    <p>Base: {{ now | date : 'd MMMM yyyy HH:mm:ss' : '+0100' : 'fr-BE' }}</p>
+    <p>Base: {{ now | date : 'd MMMM yyyy HH:mm:ss' : '+0100' : 'nl-BE' }}</p>
+</div>
+
+<div>
+    <h4>Currency (CurrencyPipe)</h4>
+
+    <p ngNonBindable>
+        {{ valeur | currency [ : code [ : display [ : digitsInfo [ : locale ] ] ] ] }}
+    </p>
+
+    <p>Base: {{ 123456.789 }}</p>
+    <p>Base: {{ 123456.789 | currency }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'USD' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'JPY' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' : 'symbol' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' : 'symbol-narrow' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' : 'code' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' : 'symbol' : '1.2-2' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' : 'symbol' : '1.2-2' : 'fr-BE' }}</p>
+    <p>Base: {{ 123456.789 | currency : 'EUR' : 'symbol' : '1.2-2' : 'nl-BE' }}</p>
+</div>
+
+<div>
+    <h4>JSON (JsonPipe)</h4>
+
+    <p ngNonBindable>
+        {{ valeur | json }}
+    </p>
+
+    <p>Base: {{ personne }}</p>
+    <p>Base: {{ personne | json }}</p>
+
+
+</div>
+
+
+<h3>Les pipes personnalisés</h3>
+
+<p>Les pipes personnalisés sont des classes qui implémentent l'interface PipeTransform</p>
+
+<p>Commande pour créer un pipe: ng g p nom_pipe</p>
+
+<div>
+    <h4>Exemple de pipe pour capitaliser des mots (sans paramètres)</h4>
+
+    <p>Valeur de départ: {{ "bonjour tout le monde !" }}</p>
+    <p>Valeur de départ: {{ "bonjour tout le monde !" | capitalize }}</p>
+</div>
+
+<div>
+    <h4>Exemple de pipe pour tronquer un texte (avec un paramètre)</h4>
+
+    <p>Valeur de départ: {{ "Voici une chaine de caractères avec une certaine longueur." }}</p>
+    <p>Valeur de départ: {{ "Voici une chaine de caractères avec une certaine longueur." | truncate }}</p>
+    <p>Valeur de départ: {{ "Quentin Geerts" | truncate }}</p>
+    <p>Valeur de départ: {{ "Voici une chaine de caractères avec une certaine longueur." | truncate : 10 }}</p>
+
+</div>
+
+<div>
+    <h4>Exemple de pipe pour masquer une partie de chaines (avec plusieurs paramètres)</h4>
+
+    <p>Valeur de départ: {{ "1234567890" }}</p>
+    <p>Valeur de départ: {{ "1234567890" | mask : 3 : "•" : 'start' }}</p>
+    <p>Valeur de départ: {{ "1234567890" | mask : 4 : "*" : 'end' }}</p>
+</div>
