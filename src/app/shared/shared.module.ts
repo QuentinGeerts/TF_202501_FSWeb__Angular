@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { CapitalizePipe } from './pipes/capitalize.pipe';
+import { ChronometrePipe } from './pipes/chronometre.pipe';
 import { MaskPipe } from './pipes/mask.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
 
@@ -14,7 +15,8 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     NavbarComponent,
     CapitalizePipe,
     TruncatePipe,
-    MaskPipe
+    MaskPipe,
+    ChronometrePipe
   ],
   imports: [
     CommonModule,
@@ -28,6 +30,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     CapitalizePipe,
     TruncatePipe,
     MaskPipe,
+    ChronometrePipe,
   ]
 })
 export class SharedModule { }

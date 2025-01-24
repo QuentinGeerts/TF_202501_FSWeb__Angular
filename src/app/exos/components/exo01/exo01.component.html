@@ -1,1 +1,7 @@
-<p>exo01 works!</p>
+<h2>Exercice 01 - Chronomètre (Pipes)</h2>
+
+<p>Temps écoulé : {{ compteur | chronometre }}</p>
+
+<button (click)="start()" [disabled]="timer">Start</button>
+<button (click)="stop()" [disabled]="!timer">Stop</button>
+<button (click)="reset()" [disabled]="!compteur">Reset</button>
